@@ -1,2 +1,3 @@
 # html-css
- Curso HTML5 Curso em Video
+ Curso de HTML5 do Curso em Video
+ www.cursoemvideo.com.br
