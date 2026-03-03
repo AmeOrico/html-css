@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>teste de Imagem de fundo</title>
+    <style>
+        body {
+            background-image: url("imagens/wallpaper001.jpg");
+        }
+        h1 {
+            text-align: center;
+        }
+        div.quadrado{
+            border: 1px solid black;
+            width: 300px;
+            height: 300px;
+            display: inline-block; /* para ficarem uma ao lado da outra*/
+            border-radius: 50px;
+            background-color: lightslategray;
+            margin: 5px;
+        }
+        div#q1 {
+            background-color: aquamarine;
+        }
+        div#q2 {
+            background-image: linear-gradient(to bottom, yellow, orange);
+        }
+        div#q3 {
+            background-image: url('imagens/pattern003.png') ;
+        }
+        div#q4 {
+            color: aliceblue;
+            background-color: black;
+            background-image: url('imagens/terra.gif') ;
+            background-repeat: no-repeat;
+            background-position: center center;
+        }
+    </style>
+</head>
+<body>
+    <div class="quadrado" id="q1">
+        <h1>oi</h1>
+    </div>
+    <div class="quadrado" id="q2">
+        <h1>ola</h1>
+    </div>
+    <div class="quadrado" id="q3">
+        <h1>Coé</h1>
+    </div>
+    <div class="quadrado" id="q4">
+       <h1>Terra</h1>
+    </div>
+    <a href="fundo002.html"><h1>Link para exercício 2</h1></a>
+</body>
+</html>
