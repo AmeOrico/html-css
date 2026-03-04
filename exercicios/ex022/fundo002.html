@@ -1,20 +1,69 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exercicio de background 002</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Exercicio de background 002</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;                 /* Ativa o flexbox no body */
+    flex-direction: column;        /* Organiza os itens em coluna */
+    justify-content: center;       /* Centraliza verticalmente */
+    align-items: center;           /* Centraliza horizontalmente */
+    min-height: 100vh;             /* Garante que o body tenha altura de tela inteira */
+    background-image: 
+        linear-gradient(to bottom, rgba(160,32,240,0.3), rgba(0,0,0,0.8)),
+        url(imagens/wallpaper001.jpg);
+    font-family: Arial, sans-serif;
+    text-align: center;            /* Centraliza o texto dentro do body */
+    gap: 20px;                     /* Espaço entre os itens */
+}
+
+a {
+    color: aliceblue;
+    text-decoration: none;
+}
+
+a:hover {
+    color: yellow;
+}
+
+/* Ícone automático */
+a::after {
+    content: " 🔗";
+}
+
+/* Seta antes do link */
+a::before {
+    content: "👉 ";
+}
+
+/* Texto dinâmico no link */
+a[data-info]::after {
+    content: " " attr(data-info);
+    color: red;
+}
+hr {
+    size: 20px;
+}
+</style>
+
 </head>
-    <style>
-        * { 
-            margin: 0;
-        }
-        body {
-            min-height: 100vh;
-            background-image:linear-gradient(to bottom,rgba(160,32,240,0.3),rgba(0,0,0,0.8)), url(imagens/wallpaper001.jpg);  
-        }
-    </style>
+
 <body>
-    <h1> <a href="index.html"> Olá  mundo! </a></h1>
+    <h1>
+        <a href="index.html">Olá mundo!</a>
+    </h1>
+    <hr>
+    <p>
+        <a href="https://exemplo.com" data-info="Novo!">Teste de link</a>
+    </p>
 </body>
 </html>
