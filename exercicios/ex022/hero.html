@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modelo Layout Hero</title>
+    <style>
+        :root{
+            --accent:#6b3fa0;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing:border-box;
+        }
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        header {
+            padding: 20px;
+            background-color: black;
+            color: aliceblue;
+            text-shadow: 2px 2px 0px var(--accent);
+        }
+        .hero {
+            min-height: 100vh;
+            background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.8)),url(imagens/wallpaper003.jpg);
+            background-size: cover;
+            background-position: center;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            text-align: center;
+            color: aliceblue;
+
+        }
+        .hero-content h2{
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        .hero-content p{
+            margin-bottom: 20px;
+        }
+        .hero-content a{
+            background-color: aliceblue;
+            color: black;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition:0.3s;
+            display:inline-block;
+            margin:10px;
+        }
+        .hero-content a:hover{
+            background-color: var(--accent);
+            color: aliceblue;
+        }
+
+        footer {
+            background-color: black;
+            font-size: 14px;
+            color: aliceblue;
+            text-align: center;
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>AfterHype</h1>
+        <nav></nav>
+    </header>
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h2>Redescobrindo obras depois do hype!</h2>
+                <p>Análises culturais com distância crítica.</p>
+                <a href="#">Ler artigos</a>|<a href="#">Sobre o projeto</a>
+            </div>
+        </section>
+    </main>
+    <footer>Execício de fixação de Layout - Modelo Hero - 05/03/2026</footer>
+</body>
+</html>
