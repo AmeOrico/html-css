@@ -26,7 +26,8 @@
                 gap: 20px;
                 /* */display:flex;
                 flex-wrap:wrap; 
-                justify-content: center; 
+                justify-content: center;
+                align-items: center;
                 border-radius: 20px;
                 
                 
@@ -37,6 +38,7 @@
                 padding:10px;
                 border-radius:8px;
                 box-shadow:0 5px 5px rgba(0,0,0,0.2);
+                text-align: center;
             }
         .card:hover {
             transform: translateY(-5px);
@@ -47,6 +49,10 @@
                 border-radius: 15px;
                 width: 200px;
             }
+        .card p {
+        font-size: 15px;
+        padding: 10px 0;
+        }
         .container {
                 display:flex;
                 gap:20px;
@@ -55,8 +61,8 @@
     </style>
 </head>
 <body>
+    
     <h1>Artigos</h1>
-
     <section class="cards">
 
         <div class="card">
