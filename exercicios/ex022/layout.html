@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRIANDO Layout com CARD</title>
+    <style>
+        * {
+                margin:0;
+                padding:0;
+                box-sizing:border-box;
+            }
+
+        body {
+                font-family:Arial, Helvetica, sans-serif;
+                background-image:linear-gradient(45deg, rgb(143, 140, 140), rgb(63, 56, 87));
+            }
+            header {
+                    text-align: center;
+                    padding: 20px;
+                    background-color: #333;
+                    color: white;
+        }
+        nav {
+                background-color: #555;
+                color: white;
+                padding: 15px;
+                text-align: center;
+                border-radius: 15px;
+                height: 10%;
+                margin: 10px auto;
+                width: 200px;
+
+            }
+        main {
+                background-color: rgb(33, 51, 66);
+                border-radius: 15px;
+                margin: 10px auto;
+                display: grid;
+                grid-template-columns: 220px 1fr;
+                max-width: 1500px; /* 230 + 1400 */
+            }
+        .cards {
+                /*display:grid;
+                 grid-template-columns:repeat(3,1fr);
+                grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); 
+                justify-items: center;*/
+                background-color: rgb(66, 43, 33);
+                gap: 20px;
+                display:flex;
+                flex-wrap:wrap; 
+                justify-content: center;
+                align-items: center;
+                border-radius: 15px;
+                margin: 10px 10PX 10PX 0 ;
+            }
+        .card {
+                width: 220px;
+                background-color: aliceblue;
+                padding:10px;
+                border-radius:8px;
+                box-shadow:0 5px 5px rgba(0,0,0,0.2);
+                text-align: center;
+                margin: 10px auto;
+            }
+        .card:hover {
+            transform: translateY(-5px);
+            transition:0.3s;
+            background-color: rgb(219, 219, 219);
+        }
+        .card img {
+                border-radius: 15px;
+                width: 200px;
+            }
+        .card p {
+        font-size: 15px;
+        padding: 10px 0;
+        }
+        .container {
+                display:flex;
+                gap:20px;
+                flex-wrap:wrap;
+            }
+        footer {
+                text-align: center;
+                padding: 20px;
+                background-color: #333;
+                color: white;
+            }
+    </style>
+</head>
+<body>
+    <header>
+    <h1>Artigos</h1>
+    </header>
+    <main>
+    <nav>Menu</nav>
+    <section class="cards">
+
+        <div class="card">
+            <img src="imagens/pattern001.png">
+            <h2>Artigo 1</h2>
+            <p>Pequena descrição do artigo.</p>
+            <a href="#">Ler análise</a>
+        </div>
+
+        <div class="card">
+            <img src="imagens/pattern002.png">
+            <h2>Artigo 2</h2>
+            <p>Pequena descrição do artigo.</p>
+            <a href="#">Ler análise</a>
+        </div>
+
+        <div class="card">
+            <img src="imagens/pattern003.png">
+            <h2>Artigo 3</h2>
+            <p>Pequena descrição do artigo.</p>
+            <a href="#">Ler análise</a>
+        </div>
+
+                <div class="card">
+            <img src="imagens/pattern001.png">
+            <h2>Artigo 1</h2>
+            <p>Pequena descrição do artigo.</p>
+            <a href="#">Ler análise</a>
+        </div>
+
+        <div class="card">
+            <img src="imagens/pattern002.png">
+            <h2>Artigo 2</h2>
+            <p>Pequena descrição do artigo.</p>
+            <a href="#">Ler análise</a>
+        </div>
+
+        <div class="card">
+            <img src="imagens/pattern003.png">
+            <h2>Artigo 3</h2>
+            <p>Pequena descrição do artigo.</p>
+            <a href="#">Ler análise</a>
+        </div>
+
+                <div class="card">
+            <img src="imagens/pattern001.png">
+            <h2>Artigo 1</h2>
+            <p>Pequena descrição do artigo.</p>
+            <a href="#">Ler análise</a>
+        </div>
+
+        <div class="card">
+            <img src="imagens/pattern002.png">
+            <h2>Artigo 2</h2>
+            <p>Pequena descrição do artigo.</p>
+            <a href="#">Ler análise</a>
+        </div>
+
+        <div class="card">
+            <img src="imagens/pattern003.png">
+            <h2>Artigo 3</h2>
+            <p>Pequena descrição do artigo.</p>
+            <a href="#">Ler análise</a>
+        </div>
+
+                <div class="card">
+            <img src="imagens/pattern001.png">
+            <h2>Artigo 1</h2>
+            <p>Pequena descrição do artigo.</p>
+            <a href="#">Ler análise</a>
+        </div>
+
+        <div class="card">
+            <img src="imagens/pattern002.png">
+            <h2>Artigo 2</h2>
+            <p>Pequena descrição do artigo.</p>
+            <a href="#">Ler análise</a>
+        </div>
+
+        <div class="card">
+            <img src="imagens/pattern003.png">
+            <h2>Artigo 3</h2>
+            <p>Pequena descrição do artigo.</p>
+            <a href="#">Ler análise</a>
+        </div>
+
+                <div class="card">
+            <img src="imagens/pattern001.png">
+            <h2>Artigo 1</h2>
+            <p>Pequena descrição do artigo.</p>
+            <a href="#">Ler análise</a>
+        </div>
+
+        <div class="card">
+            <img src="imagens/pattern002.png">
+            <h2>Artigo 2</h2>
+            <p>Pequena descrição do artigo.</p>
+            <a href="#">Ler análise</a>
+        </div>
+
+    </section>
+    </main>
+    <footer>
+        <p>Copyright &copy; 2026 - Estudos de 03/2026.</p>
+    </footer>
+</body>
+</html>
