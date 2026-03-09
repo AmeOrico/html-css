@@ -59,18 +59,28 @@
                 gap: unset;
             }
         }
-        .cards {
+        /*.cards {
                 background-color: rgb(66, 43, 33);
                 gap: 20px;
                 display:flex;
                 flex-wrap:wrap; 
                 justify-content: center;
-                align-items: center;
+                align-items: flex-start;
                 border-radius: 15px;
                 margin: 10px 10PX 10PX 0PX;
                 padding-bottom: 10px;
-            }
-        .card {
+            }*/
+            .cards {
+                background-color: rgb(66, 43, 33);
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+                gap: 20px;
+
+                border-radius: 15px;
+                margin: 10px 10px 10px 0;
+                padding: 10px;
+}
+        /* .card {
                 width: 220px;
                 background-color: aliceblue;
                 padding:10px;
@@ -78,6 +88,21 @@
                 box-shadow:0 5px 5px rgba(0,0,0,0.2);
                 text-align: center;
                 margin-top: 10px;
+            } */
+        .card {
+                width: 100%;
+                background-color: aliceblue;
+                padding:10px;
+                border-radius:15px;
+                box-shadow:0 5px 5px rgba(0,0,0,0.2);
+                text-align: center;
+                margin-top: 10px;
+
+                display:flex;
+                flex-direction:column;
+            }
+        .card a {
+                margin-top:auto;
             }
         .card:hover {
                 transform: translateY(-5px);
@@ -86,17 +111,12 @@
         }
         .card img {
                 border-radius: 15px;
-                width: 200px;
+                width:100%;
             }
         .card p {
                 font-size: 15px;
                 padding: 10px 0;
         }
-        .container {
-                display:flex;
-                gap:20px;
-                flex-wrap:wrap;
-            }
         footer {
                 text-align: center;
                 padding: 20px;
@@ -115,6 +135,10 @@
         Home<br>
         Artigos<br>
         Reviews<br>
+        Contato<br>
+        Home<br>
+        Artigos<br>
+        Reviews<br>
         Contato
         </p>
     </nav>
@@ -123,7 +147,7 @@
         <div class="card">
             <img src="imagens/pattern001.png">
             <h2>Artigo 1</h2>
-            <p>Pequena descrição do artigo.</p>
+            <p>Pequena descrição do artigo.Pequena descrição do artigo.</p>
             <a href="#">Ler análise</a>
         </div>
 
@@ -131,6 +155,48 @@
             <img src="imagens/pattern002.png">
             <h2>Artigo 2</h2>
             <p>Pequena descrição do artigo.</p>
+            <a href="#">Ler análise</a>
+        </div>
+
+        <div class="card">
+            <img src="imagens/pattern003.png">
+            <h2>Artigo 3</h2>
+            <p>Pequena descrição do artigo.Pequena descrição do artigo.Pequena descrição do artigo.</p>
+            <a href="#">Ler análise</a>
+        </div>
+
+                <div class="card">
+            <img src="imagens/pattern001.png">
+            <h2>Artigo 1</h2>
+            <p>Pequena descrição do artigo.</p>
+            <a href="#">Ler análise</a>
+        </div>
+
+        <div class="card">
+            <img src="imagens/pattern002.png">
+            <h2>Artigo 2</h2>
+            <p>Pequena descrição do artigo.Pequena descrição do artigo.Pequena descrição do artigo.Pequena descrição do artigo.</p>
+            <a href="#">Ler análise</a>
+        </div>
+
+        <div class="card">
+            <img src="imagens/pattern003.png">
+            <h2>Artigo 3</h2>
+            <p>Pequena descrição do artigo.</p>
+            <a href="#">Ler análise</a>
+        </div>
+
+                <div class="card">
+            <img src="imagens/pattern001.png">
+            <h2>Artigo 1</h2>
+            <p>Pequena descrição do artigo.</p>
+            <a href="#">Ler análise</a>
+        </div>
+
+        <div class="card">
+            <img src="imagens/pattern002.png">
+            <h2>Artigo 2</h2>
+            <p>Pequena descrição do artigo.Pequena descrição do artigo.</p>
             <a href="#">Ler análise</a>
         </div>
 
@@ -165,56 +231,14 @@
                 <div class="card">
             <img src="imagens/pattern001.png">
             <h2>Artigo 1</h2>
-            <p>Pequena descrição do artigo.</p>
+            <p>Pequena descrição do artigo.Pequena descrição do artigo.Pequena descrição do artigo.</p>
             <a href="#">Ler análise</a>
         </div>
 
         <div class="card">
             <img src="imagens/pattern002.png">
             <h2>Artigo 2</h2>
-            <p>Pequena descrição do artigo.</p>
-            <a href="#">Ler análise</a>
-        </div>
-
-        <div class="card">
-            <img src="imagens/pattern003.png">
-            <h2>Artigo 3</h2>
-            <p>Pequena descrição do artigo.</p>
-            <a href="#">Ler análise</a>
-        </div>
-
-                <div class="card">
-            <img src="imagens/pattern001.png">
-            <h2>Artigo 1</h2>
-            <p>Pequena descrição do artigo.</p>
-            <a href="#">Ler análise</a>
-        </div>
-
-        <div class="card">
-            <img src="imagens/pattern002.png">
-            <h2>Artigo 2</h2>
-            <p>Pequena descrição do artigo.</p>
-            <a href="#">Ler análise</a>
-        </div>
-
-        <div class="card">
-            <img src="imagens/pattern003.png">
-            <h2>Artigo 3</h2>
-            <p>Pequena descrição do artigo.</p>
-            <a href="#">Ler análise</a>
-        </div>
-
-                <div class="card">
-            <img src="imagens/pattern001.png">
-            <h2>Artigo 1</h2>
-            <p>Pequena descrição do artigo.</p>
-            <a href="#">Ler análise</a>
-        </div>
-
-        <div class="card">
-            <img src="imagens/pattern002.png">
-            <h2>Artigo 2</h2>
-            <p>Pequena descrição do artigo.</p>
+            <p>Pequena descrição do artigo.Pequena descrição do artigo.</p>
             <a href="#">Ler análise</a>
         </div>
 
