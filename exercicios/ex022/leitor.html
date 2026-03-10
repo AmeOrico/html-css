@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Leitor Sensorial</title>
+
+<style>
+
+body{
+    margin:0;
+    font-family:Arial;
+    background:#111;
+    color:white;
+}
+
+/* editor normal (modo inicial) */
+
+#editorContainer{
+    text-align:center;
+    padding:40px;
+}
+
+/* editor em modo overlay */
+
+.overlay{
+
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+
+    background:rgba(0,0,0,0.75);
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    z-index:1000;
+
+}
+
+#editor{
+
+    background:#222;
+    padding:30px;
+    border-radius:12px;
+
+    box-shadow:0 0 20px rgba(0,0,0,0.5);
+
+}
+
+textarea{
+    width:600px;
+    height:150px;
+}
+
+/* palavra central */
+
+#wordDisplay{
+
+    position:absolute;
+    top:42%;
+    left:50%;
+    transform:translate(-50%, -50%);
+    font-size:72px;
+    font-weight:bold;
+    z-index:1;
+
+}
+
+/* painel inferior */
+
+#controlPanel{
+
+    position:fixed;
+    bottom:20px;
+    left:50%;
+    transform:translateX(-50%);
+
+    background:rgba(255,255,255,0.05);
+    padding:12px 20px;
+    border-radius:10px;
+
+}
+
+/* painel velocidade */
+
+#speedPanel{
+
+    position:fixed;
+    top:20px;
+    left:50%;
+    transform:translateX(-50%);
+
+    background:rgba(255,255,255,0.05);
+    padding:10px 20px;
+    border-radius:10px;
+
+}
+
+button{
+
+    font-size:20px;
+    padding:10px 16px;
+    margin:4px;
+    cursor:pointer;
+
+}
+
+.speedBtn{
+
+    font-size:24px;
+    padding:10px 18px;
+
+}
+
+.hidden{
+    display:none;
+}
+
+#speedValue{
+    font-size:20px;
+    margin:0 10px;
+}
+
+</style>
+</head>
+<body>
+
+<div id="editorContainer">
+    <div id="editor">
+        <h2>Leitor Sensorial</h2>
+        <textarea id="textInput"></textarea>
+        <br><br>
+        Velocidade inicial (segundos por palavra)
+        <input type="number" id="speedInput" value="0.4" step="0.1">
+        <br><br>
+        <button onclick="startReading()">Iniciar</button>
+    </div>
+</div>
+
+<div id="wordDisplay"></div>
+    <div id="speedPanel" class="hidden">
+    <button class="speedBtn" onclick="changeSpeed(-0.1)">-</button>
+    <span id="speedValue">0.4s</span>
+    <button class="speedBtn" onclick="changeSpeed(0.1)">+</button>
+</div>
+
+
+<div id="controlPanel" class="hidden">
+    <button onclick="back10()"><<</button>
+    <button onclick="back1()"><</button>
+    <button onclick="togglePlay()" id="playBtn">⏸</button>
+    <button onclick="forward1()">></button>
+    <button onclick="forward10()">>></button>
+    <button onclick="showEditor()">Editor</button>
+</div>
+
+<script>
+
+let words=[]
+let index=0
+let timer=null
+let paused=false
+let speed=400
+let readingMode=false
+
+function startReading(){
+    const text=document.getElementById("textInput").value
+    words=text.trim().split(/\s+/)
+    index=0
+    speed=parseFloat(document.getElementById("speedInput").value)*1000
+    readingMode=true
+    document.getElementById("editorContainer").classList.add("hidden")
+    document.getElementById("controlPanel").classList.remove("hidden")
+    document.getElementById("speedPanel").classList.remove("hidden")
+    updateSpeedLabel()
+    paused=false
+    showWord()
+    restartTimer()
+}
+
+function restartTimer(){
+    if(timer) clearInterval(timer)
+    timer=setInterval(nextWord,speed)
+}
+
+function showWord(){
+    if(index<0) index=0
+    if(index>=words.length) index=words.length-1
+    document.getElementById("wordDisplay").textContent=words[index]
+}
+
+function nextWord(){
+    if(paused) return
+    index++
+    if(index>=words.length){
+        clearInterval(timer)
+        return
+    }
+    showWord()
+}
+
+function togglePlay(){
+    if(!readingMode) return
+    paused=!paused
+    document.getElementById("playBtn").textContent = paused ? "▶" : "⏸"
+}
+
+function back1(){
+    index--
+    showWord()
+}
+
+function forward1(){
+    index++
+    showWord()
+}
+
+function back10(){
+    index-=10
+    showWord()
+}
+
+function forward10(){
+    index+=10
+    showWord()
+}
+
+function changeSpeed(delta){
+    let seconds=speed/1000
+    seconds+=delta
+    if(seconds<0.1) seconds=0.1
+    speed=seconds*1000
+    updateSpeedLabel()
+    restartTimer()
+}
+
+function updateSpeedLabel(){
+    document.getElementById("speedValue").textContent=(speed/1000).toFixed(1)+"s"
+}
+
+function showEditor(){
+    readingMode=false
+    document.getElementById("editorContainer").classList.remove("hidden")
+    document.getElementById("editorContainer").classList.add("overlay")
+}
+
+document.addEventListener("keydown",function(e){
+    if(!readingMode) return
+    if(e.code==="Space"){
+        e.preventDefault()
+        togglePlay()
+    }
+    if(e.code==="ArrowRight"){
+        forward1()
+    }
+    if(e.code==="ArrowLeft"){
+        back1()
+    }
+})
+
+</script>
+
+</body>
+</html>
