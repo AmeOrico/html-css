@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<title>Leitor Sensorial</title>
+<title>Projeto ReadZen Seu Leitor Sensorial de foco absoluto RSVP</title>
 
 <style>
 
@@ -123,30 +123,45 @@ button{
     font-size:20px;
     margin:0 10px;
 }
-
+#progress{
+    position:absolute;
+    top:54%;
+    left:50%;
+    transform:translateX(-50%);
+    font-size:13px;
+    color:#777;
+    letter-spacing:1px;
+}
+P {font-size: 12px; color: #747474;text-align: center;}
 </style>
 </head>
 <body>
 
 <div id="editorContainer">
     <div id="editor">
-        <h2>Leitor Sensorial</h2>
-        <textarea id="textInput"></textarea>
+        <h2>Projeto ReadZen</h2> <p>Leitor Sensorial de Foco Absoluto
+        <br>RSVP – Rapid Serial Visual Presentation ou Apresentação Visual Serial Rápida</p>
+
+        <textarea id="textInput" placeholder="Cole seu texto aqui, e clique em Iniciar"></textarea>
         <br><br>
         Velocidade inicial (segundos por palavra)
         <input type="number" id="speedInput" value="0.4" step="0.1">
+
+        <br><br>
+        <button onclick="fillExampleText()">Texto de Exemplo</button>
+        <button onclick="clearText()">Limpar Texto</button>
         <br><br>
         <button onclick="startReading()">Iniciar</button>
     </div>
 </div>
 
 <div id="wordDisplay"></div>
+<div id="progress"></div>
     <div id="speedPanel" class="hidden">
     <button class="speedBtn" onclick="changeSpeed(-0.1)">-</button>
     <span id="speedValue">0.4s</span>
     <button class="speedBtn" onclick="changeSpeed(0.1)">+</button>
 </div>
-
 
 <div id="controlPanel" class="hidden">
     <button onclick="back10()"><<</button>
@@ -156,6 +171,7 @@ button{
     <button onclick="forward10()">>></button>
     <button onclick="showEditor()">Editor</button>
 </div>
+<p>Américo Filho - 2026 - versão 1.005</p>
 
 <script>
 
@@ -172,12 +188,17 @@ function startReading(){
     index=0
     speed=parseFloat(document.getElementById("speedInput").value)*1000
     readingMode=true
+
     document.getElementById("editorContainer").classList.add("hidden")
     document.getElementById("controlPanel").classList.remove("hidden")
     document.getElementById("speedPanel").classList.remove("hidden")
+
     updateSpeedLabel()
+
     paused=false
+
     showWord()
+
     restartTimer()
 }
 
@@ -187,19 +208,38 @@ function restartTimer(){
 }
 
 function showWord(){
+
     if(index<0) index=0
     if(index>=words.length) index=words.length-1
+
     document.getElementById("wordDisplay").textContent=words[index]
+
+    document.getElementById("progress").textContent =
+        (index+1) + " / " + words.length
 }
 
 function nextWord(){
+
     if(paused) return
+
     index++
+
     if(index>=words.length){
         clearInterval(timer)
         return
     }
+
     showWord()
+
+    let delay = speed
+
+    if(/[.,;:!?]$/.test(words[index])){
+        delay = speed * 2
+    }
+
+    clearInterval(timer)
+    timer=setInterval(nextWord,delay)
+
 }
 
 function togglePlay(){
@@ -229,11 +269,17 @@ function forward10(){
 }
 
 function changeSpeed(delta){
+
     let seconds=speed/1000
+
     seconds+=delta
+
     if(seconds<0.1) seconds=0.1
+
     speed=seconds*1000
+
     updateSpeedLabel()
+
     restartTimer()
 }
 
@@ -242,25 +288,52 @@ function updateSpeedLabel(){
 }
 
 function showEditor(){
+
     readingMode=false
+
     document.getElementById("editorContainer").classList.remove("hidden")
+
     document.getElementById("editorContainer").classList.add("overlay")
 }
 
 document.addEventListener("keydown",function(e){
+
     if(!readingMode) return
+
     if(e.code==="Space"){
         e.preventDefault()
         togglePlay()
     }
+
     if(e.code==="ArrowRight"){
         forward1()
     }
+
     if(e.code==="ArrowLeft"){
         back1()
     }
+
+    if(e.code==="ArrowUp"){
+        changeSpeed(-0.1)
+    }
+
+    if(e.code==="ArrowDown"){
+        changeSpeed(0.1)
+    }
+
 })
 
+function fillExampleText(){
+    const exampleText = `Era uma manhã serena, e o sol começava a dourar a copa das árvores. 
+Os pássaros cantavam em harmonia e cada folha parecia brilhar com sua própria luz. 
+Era o momento perfeito para deixar a mente viajar, explorar pensamentos e descobrir novas ideias. 
+A simplicidade da natureza lembrava que, às vezes, a verdadeira grandeza está nos detalhes mais sutis.`;
+
+    document.getElementById("textInput").value = exampleText;
+}
+function clearText(){
+    document.getElementById("textInput").value = "";
+}
 </script>
 
 </body>

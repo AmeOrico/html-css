@@ -1,0 +1,67 @@
+
+preciso de um programa em javascript que pegará um texto que eu irei passar para ele através de um campo text com em HTML5 que mostrará apenas uma palavra por vez, no centro da tela, em uma velocidade em segundos que determinarei anteriormente. Isso faz parte de um teste sensorial que mostra que, quando lemos isoladamente uma única palavra por vez somos capazes de ler muito mais em um tempo mínimo, alcançando uma grande quantidade de texto, sem nos perdermos na linhas. O programa tambem deve ser capas de pausar a exibição das palavras quando se aperta a tecla space no teclado, e posso avançar para tras e para frente usando as setas do teclado.
+
+----------------------
+
+[1] Página Web / Container Alvo
+     |
+     v
+[2] Seleção do container
+     - document.querySelector("#mainContent")
+     - Apenas o texto principal entra na leitura
+     |
+     v
+[3] Tokenização do HTML
+     - Transformar conteúdo HTML em array de tokens
+     - Cada token = palavra + metadados
+        { 
+          text: "Palavra",
+          style: { fontSize, bold, italic },
+          pause: 0.0–0.7 (segundos),
+          type: "word" | "title" | "lineBreak" | "paragraph"
+        }
+     |
+     v
+[4] Interpretação das tags
+     - <h1> … <h6> -> aumenta fontSize, adiciona ênfase
+     - <strong>/<b> -> negrito
+     - <em>/<i> -> itálico
+     - <p> -> pausa maior
+     - <br> -> pausa curta
+     - Pontuação (.,;:) -> pausa extra
+     - <ul><li> -> pausa ao final de cada item
+     |
+     v
+[5] Filtro de conteúdo
+     - Ignorar scripts, imagens, estilos irrelevantes
+     - Limitar caracteres/words se muito longo
+     |
+     v
+[6] Criação do fluxo de leitura
+     - Array de tokens organizado
+     - Cada token contém palavra, estilo e pausa
+     - Ex.: [{text:"Leitura", style:{fontSize:72}, pause:0.0}, ...]
+     |
+     v
+[7] Modo de exibição dinâmica
+     - Palavra por palavra
+     - Aplica estilo do token
+     - Respeita pausas
+     - Ajusta velocidade dinâmica (controle do usuário)
+     |
+     v
+[8] Controles interativos
+     - Play / Pause
+     - Avançar / Voltar palavras
+     - Ajuste de velocidade em tempo real
+     - Possível overlay para edição de texto
+     |
+     v
+[9] Feedback visual
+     - Destaques de títulos
+     - Pausas visíveis ou leves animações
+     - Barra de progresso (opcional)
+
+
+-------------
+
