@@ -1,139 +1,144 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<title>Projeto ReadZen Seu Leitor Sensorial de foco absoluto RSVP</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projeto ReadZen Seu Leitor Sensorial de foco absoluto RSVP</title>
 
-<style>
+    <style>
+        body{
+            margin:0 auto;
+            font-family:Arial;
+            background:#111;
+            color:white;
+        }
 
-body{
-    margin:0;
-    font-family:Arial;
-    background:#111;
-    color:white;
-}
+        /* editor normal (modo inicial) */
+        #editorContainer{
+            text-align:center;
+            padding:40px;
+            width:80%;
+            margin:auto;
+        }
 
-/* editor normal (modo inicial) */
+        /* editor em modo overlay */
+        .overlay{
+            position:fixed;
+            top:0;
+            left:0;
+            width:100%;
+            height:100%;
 
-#editorContainer{
-    text-align:center;
-    padding:40px;
-}
+            background:rgba(0,0,0,0.75);
 
-/* editor em modo overlay */
+            display:flex;
+            align-items:center;
+            justify-content:center;
 
-.overlay{
+            z-index:1000;
+        }
 
-    position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
 
-    background:rgba(0,0,0,0.75);
+        #editor{
 
-    display:flex;
-    align-items:center;
-    justify-content:center;
+            background:#222; /* fundo do container do ReadZen */
+            padding:30px;
+            border-radius:12px;
 
-    z-index:1000;
+            box-shadow:0 0 20px rgba(0,0,0,0.5);
 
-}
+        }
 
-#editor{
+        textarea{
+            width:600px;
+            height:150px;
+        }
 
-    background:#222;
-    padding:30px;
-    border-radius:12px;
+        /* palavra central */
 
-    box-shadow:0 0 20px rgba(0,0,0,0.5);
+        #wordDisplay{
 
-}
+            position:absolute;
+            top:42%;
+            left:50%;
+            transform:translate(-50%, -50%);
+            font-size:72px;
+            font-weight:bold;
+            z-index:1;
 
-textarea{
-    width:600px;
-    height:150px;
-}
+        }
 
-/* palavra central */
+        /* painel inferior */
 
-#wordDisplay{
+        #controlPanel{
 
-    position:absolute;
-    top:42%;
-    left:50%;
-    transform:translate(-50%, -50%);
-    font-size:72px;
-    font-weight:bold;
-    z-index:1;
+            position:fixed;
+            bottom:20px;
+            left:50%;
+            transform:translateX(-50%);
 
-}
+            background:rgba(255,255,255,0.05);
+            padding:12px 20px;
+            border-radius:10px;
 
-/* painel inferior */
+        }
 
-#controlPanel{
+        /* painel velocidade */
 
-    position:fixed;
-    bottom:20px;
-    left:50%;
-    transform:translateX(-50%);
+        #speedPanel{
 
-    background:rgba(255,255,255,0.05);
-    padding:12px 20px;
-    border-radius:10px;
+            position:fixed;
+            top:30px;
+            left:50%;
+            transform:translateX(-50%);
 
-}
+            background:rgba(255,255,255,0.05);
+            padding:10px 20px;
+            border-radius:15px;
 
-/* painel velocidade */
+        }
 
-#speedPanel{
+        button{
 
-    position:fixed;
-    top:20px;
-    left:50%;
-    transform:translateX(-50%);
+            font-size:20px;
+            padding:10px 16px;
+            margin:4px;
+            cursor:pointer;
+            border-radius:15px;
 
-    background:rgba(255,255,255,0.05);
-    padding:10px 20px;
-    border-radius:10px;
+        }
 
-}
+        .speedBtn{
 
-button{
+            font-size:24px;
+            padding:10px 18px;
 
-    font-size:20px;
-    padding:10px 16px;
-    margin:4px;
-    cursor:pointer;
+        }
 
-}
+        .hidden{
+            display:none;
+        }
 
-.speedBtn{
-
-    font-size:24px;
-    padding:10px 18px;
-
-}
-
-.hidden{
-    display:none;
-}
-
-#speedValue{
-    font-size:20px;
-    margin:0 10px;
-}
-#progress{
-    position:absolute;
-    top:54%;
-    left:50%;
-    transform:translateX(-50%);
-    font-size:13px;
-    color:#777;
-    letter-spacing:1px;
-}
-P {font-size: 12px; color: #747474;text-align: center;}
-</style>
+        #speedValue{
+            font-size:20px;
+            margin:0 10px;
+        }
+        #progress{
+            position:absolute;
+            top:54%;
+            left:50%;
+            transform:translateX(-50%);
+            font-size:13px;
+            color:#777;
+            letter-spacing:1px;
+        }
+        P { 
+            font-size: 12px; 
+            color: #747474;
+            text-align: center;
+            
+        }
+    </style>
 </head>
 <body>
 
@@ -158,17 +163,17 @@ P {font-size: 12px; color: #747474;text-align: center;}
 <div id="wordDisplay"></div>
 <div id="progress"></div>
     <div id="speedPanel" class="hidden">
-    <button class="speedBtn" onclick="changeSpeed(-0.1)">-</button>
+    <button class="speedBtn" onclick="changeSpeed(-0.1)">🔼</button>
     <span id="speedValue">0.4s</span>
-    <button class="speedBtn" onclick="changeSpeed(0.1)">+</button>
+    <button class="speedBtn" onclick="changeSpeed(0.1)">🔽</button>
 </div>
 
 <div id="controlPanel" class="hidden">
-    <button onclick="back10()"><<</button>
-    <button onclick="back1()"><</button>
-    <button onclick="togglePlay()" id="playBtn">⏸</button>
-    <button onclick="forward1()">></button>
-    <button onclick="forward10()">>></button>
+    <button onclick="back10()">⏪</button>
+    <button onclick="back1()">◀️</button>
+    <button onclick="togglePlay()" id="playBtn">⏸️</button>
+    <button onclick="forward1()">▶️</button>
+    <button onclick="forward10()">⏩</button>
     <button onclick="showEditor()">Editor</button>
 </div>
 <p>Américo Filho - 2026 - versão 1.005</p>
@@ -183,8 +188,14 @@ let speed=400
 let readingMode=false
 
 function startReading(){
-    const text=document.getElementById("textInput").value
-    words=text.trim().split(/\s+/)
+        const text=document.getElementById("textInput").value.trim()
+
+    if(text===""){
+        alert("Insira um texto para iniciar a leitura.")
+        return
+    }
+
+    words=text.split(/\s+/)
     index=0
     speed=parseFloat(document.getElementById("speedInput").value)*1000
     readingMode=true
@@ -245,7 +256,7 @@ function nextWord(){
 function togglePlay(){
     if(!readingMode) return
     paused=!paused
-    document.getElementById("playBtn").textContent = paused ? "▶" : "⏸"
+    document.getElementById("playBtn").textContent = paused ? "⏯️" : "⏸️"
 }
 
 function back1(){
