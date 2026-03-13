@@ -1,201 +1,182 @@
-/* Reset básico e layout geral */
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: #111;
-    color: white;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    min-height: 100vh;
+body{
+margin:0;
+font-family:Arial,sans-serif;
+background:#111;
+color:white;
+display:flex;
+flex-direction:column;
+align-items:center;
+min-height:100vh;
+overflow-x:hidden;
 }
 
-/* Editor principal */
-#editorContainer {
-    text-align: center;
-    padding: 40px;
-    width: 100%;
-    max-width: 900px;
-    margin: auto;
+#editorContainer{
+text-align:center;
+padding:30px;
+width:100%;
+max-width:900px;
 }
 
-.overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.75);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 1000;
+.overlay{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.8);
+display:flex;
+align-items:center;
+justify-content:center;
+z-index:1000;
 }
 
-/* Box do editor */
-#editor {
-    background: #1b1b1b;
-    padding: 40px;
-    border-radius: 16px;
-    box-shadow:
-        0 10px 30px rgba(0,0,0,0.6),
-        0 0 40px rgba(0,0,0,0.3) inset;
+#editor{
+background:#1b1b1b;
+padding:30px;
+border-radius:16px;
+box-shadow:0 10px 30px rgba(0,0,0,0.6);
+width:90%;
+max-width:600px;
 }
 
-/* Botões do editor */
-#editor button {
-    flex: 1 1 auto;
+textarea{
+width:100%;
+height:150px;
+background:#111;
+color:#eee;
+border:1px solid #333;
+border-radius:10px;
+padding:10px;
+font-size:16px;
+resize:vertical;
 }
 
-/* Textarea */
-textarea {
-    width: 100%;
-    max-width: 600px;
-    height: 150px;
-    background: #111;
-    color: #eee;
-    border: 1px solid #333;
-    border-radius: 10px;
-    padding: 10px;
-    font-size: 16px;
-    resize: vertical;
+#wordDisplay{
+position:fixed;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+font-size:clamp(36px,8vw,72px);
+font-weight:bold;
+text-align:center;
+max-width:92vw;
+word-wrap:break-word;
+overflow-wrap:break-word;
 }
 
-/* Palavra central */
-#wordDisplay {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: clamp(36px, 8vw, 72px);
-    font-weight: bold;
-    letter-spacing: 2px;
-    text-shadow: 0 0 10px rgba(255,255,255,0.2);
-    text-align: center;
-    z-index: 500;
+#progress{
+position:fixed;
+top:calc(50% + 80px);
+left:50%;
+transform:translateX(-50%);
+font-size:13px;
+color:#777;
 }
 
-/* Barra de progresso */
-#progress {
-    position: fixed;
-    top: calc(50% + 8vw + 20px); /* um pouco abaixo da palavra */
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 13px;
-    color: #777;
-    letter-spacing: 1px;
-    z-index: 500;
+#controlPanel{
+position:fixed;
+bottom:15px;
+left:50%;
+transform:translateX(-50%);
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:8px;
+padding:12px;
+background:rgba(255,255,255,0.05);
+backdrop-filter:blur(10px);
+border-radius:14px;
+width:min(95vw,420px);
 }
 
-/* Painéis de controles */
-#controlPanel,
-#speedPanel {
-    backdrop-filter: blur(10px);
-    background: rgba(255,255,255,0.06);
-    border-radius: 14px;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    z-index: 600;
+#speedPanel{
+position:fixed;
+top:15px;
+left:50%;
+transform:translateX(-50%);
+display:flex;
+align-items:center;
+gap:10px;
+padding:10px 16px;
+background:rgba(255,255,255,0.05);
+backdrop-filter:blur(10px);
+border-radius:14px;
 }
 
-/* Painéis fixos */
-#controlPanel {
-    position: fixed;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    padding: 12px 20px;
+button{
+font-size:18px;
+padding:10px 14px;
+border:none;
+border-radius:10px;
+background:#2c2c2c;
+color:white;
+cursor:pointer;
+flex:1 1 60px;
+min-width:60px;
 }
 
-#speedPanel {
-    position: fixed;
-    top: 30px;
-    left: 50%;
-    transform: translateX(-50%);
-    padding: 10px 20px;
+button:hover{
+background:#3a3a3a;
 }
 
-/* Botões gerais */
-button {
-    font-size: 18px;
-    padding: 10px 18px;
-    margin: 6px;
-    cursor: pointer;
-    border-radius: 12px;
-    border: none;
-    background: #2c2c2c;
-    color: white;
-    transition: all 0.2s ease;
+.speedBtn{
+font-size:22px;
 }
 
-button:hover {
-    background: #3a3a3a;
-    transform: translateY(-1px);
+#speedValue{
+font-size:18px;
 }
 
-/* Botões internos do editor */
-.editorButtons {
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
-    justify-content: center;
+.hidden{
+display:none!important;
 }
 
-.speedBtn {
-    font-size: 24px;
-    padding: 10px 18px;
+.editorButtons{
+display:flex;
+flex-wrap:wrap;
+gap:10px;
+justify-content:center;
 }
 
-.hidden {
-    display: none;
+/* MOBILE */
+
+@media (max-width:600px){
+
+textarea{
+height:120px;
+width: 90%;
 }
 
-#speedValue {
-    font-size: 20px;
-    margin: 0 10px;
+#wordDisplay{
+font-size:clamp(30px,10vw,60px);
 }
 
-/* Rodapé */
-p {
-    font-size: 12px;
-    color: #747474;
-    text-align: center;
+#progress{
+top:calc(50% + 70px);
 }
 
-/* RESPONSIVIDADE */
-@media (max-width: 600px) {
-
-    button {
-        font-size: 16px;
-        padding: 8px 12px;
-    }
-
-    textarea {
-        height: 120px;
-    }
-
-    #controlPanel {
-        width: 90%;
-        padding: 8px 10px;
-    }
-
-    #speedPanel {
-        width: 80%;
-        padding: 6px 10px;
-    }
-
-    #wordDisplay {
-        font-size: clamp(28px, 10vw, 60px);
-    }
-
-    #progress {
-        top: calc(50% + 10vw + 15px);
-        font-size: 12px;
-    }
+button{
+font-size:16px;
+padding:8px 10px;
 }
-#controlPanel.hidden,
-#speedPanel.hidden {
-    display: none !important;
+
+#controlPanel{
+width:92vw;
+}
+
+}
+
+/* LANDSCAPE MOBILE */
+
+body[data-orientation="landscape"] #controlPanel{
+
+bottom:8px;
+width:min(92vw,600px);
+
+}
+
+body[data-orientation="landscape"] #wordDisplay{
+
+font-size:clamp(28px,7vw,52px);
+
 }

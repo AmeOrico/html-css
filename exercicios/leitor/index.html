@@ -1,54 +1,38 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Projeto ReadZen</title>
-
 <link rel="stylesheet" href="style.css">
-
 </head>
-
 <body>
 
-<!-- CONTAINER DO EDITOR -->
 <div id="editorContainer">
     <div id="editor">
         <h2>Projeto ReadZen</h2>
-
-        <p>
-        Leitor Sensorial de Foco Absoluto<br>
-        RSVP – Rapid Serial Visual Presentation
-        </p>
-
+        <p>Leitor Sensorial de Foco Absoluto<br>RSVP – Rapid Serial Visual Presentation</p>
         <textarea id="textInput" placeholder="Cole seu texto aqui, e clique em Iniciar"></textarea>
         <br>
-
-        Velocidade inicial (segundos por palavra)
-        <input type="number" id="speedInput" value="0.4" step="0.1">
+        Palavras por minuto
+        <input type="number" id="speedInput" value="300" step="10">
         <br>
-
         <div class="editorButtons">
             <button onclick="fillExampleText()">Texto de Exemplo</button>
             <button onclick="clearText()">Limpar Texto</button>
         </div>
         <br>
-
         <button onclick="startReading()">Iniciar</button>
     </div>
 </div>
 
-<!-- DISPLAY DAS PALAVRAS E PROGRESSO -->
 <div id="wordDisplay"></div>
 <div id="progress"></div>
 
-<!-- PAINÉIS FIXOS (fora do editor) -->
 <div id="speedPanel" class="hidden">
-    <button class="speedBtn" onclick="changeSpeed(-0.1)">🔼</button>
-    <span id="speedValue">0.4s</span>
-    <button class="speedBtn" onclick="changeSpeed(0.1)">🔽</button>
+    <button class="speedBtn" onclick="changeSpeed(10)">🔼</button>
+    <span id="speedValue">300 WPM</span>
+    <button class="speedBtn" onclick="changeSpeed(-10)">🔽</button>
 </div>
 
 <div id="controlPanel" class="hidden">
@@ -60,10 +44,8 @@
     <button onclick="showEditor()">Editor</button>
 </div>
 
-<!-- RODAPÉ -->
-<p>Américo Filho - 2026 - versão 1.01</p>
+<p>Américo Filho - 2026 - versão 1.03</p>
 
 <script src="script.js"></script>
-
 </body>
 </html>
