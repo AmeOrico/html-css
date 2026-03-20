@@ -7,44 +7,46 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-<div id="editorContainer">
-    <div id="editor">
-        <h2>Projeto ReadZen</h2>
-        <p>Leitor Sensorial de Foco Absoluto<br>RSVP – Rapid Serial Visual Presentation</p>
-        <textarea id="textInput" placeholder="Cole seu texto aqui, e clique em Iniciar"></textarea>
-        <br>
-        Palavras por minuto
-        <input type="number" id="speedInput" value="300" step="10">
-        <br>
-        <div class="editorButtons">
-            <button onclick="fillExampleText()">Texto de Exemplo</button>
-            <button onclick="clearText()">Limpar Texto</button>
+<main>
+    <div id="editorContainer">
+        <div id="editor">
+            <h2>Projeto ReadZen</h2>
+            <p>Leitor Sensorial de Foco Absoluto<br>RSVP – Rapid Serial Visual Presentation</p>
+            <textarea id="textInput" placeholder="Cole seu texto aqui, e clique em Iniciar"></textarea>
+            <br>
+            Palavras por minuto
+            <input type="number" id="speedInput" value="300" step="10">
+            <br>
+            <div class="editorButtons">
+                <button onclick="fillExampleText()">Texto de Exemplo</button>
+                <button onclick="clearText()">Limpar Texto</button>
+            </div>
+            <br>
+            <button onclick="startReading()">Iniciar</button>
         </div>
-        <br>
-        <button onclick="startReading()">Iniciar</button>
     </div>
-</div>
 
-<div id="wordDisplay"></div>
-<div id="progress"></div>
+    <div id="wordDisplay"></div>
+    <div id="focusGuide"></div> <!-- LINHA DE FOCO -->
+    <div id="progress"></div>
 
-<div id="speedPanel" class="hidden">
-    <button class="speedBtn" onclick="changeSpeed(10)">🔼</button>
-    <span id="speedValue">300 WPM</span>
-    <button class="speedBtn" onclick="changeSpeed(-10)">🔽</button>
-</div>
+    <div id="speedPanel" class="hidden">
+        <button class="speedBtn" onclick="changeSpeed(10)">🔼</button>
+        <span id="speedValue">300 WPM</span>
+        <button class="speedBtn" onclick="changeSpeed(-10)">🔽</button>
+    </div>
 
-<div id="controlPanel" class="hidden">
-    <button onclick="back10()">⏪</button>
-    <button onclick="back1()">◀️</button>
-    <button onclick="togglePlay()" id="playBtn">⏸️</button>
-    <button onclick="forward1()">▶️</button>
-    <button onclick="forward10()">⏩</button>
-    <button onclick="showEditor()">Editor</button>
-</div>
+    <div id="controlPanel" class="hidden">
+        <button onclick="back10()">⏪</button>
+        <button onclick="back1()">◀️</button>
+        <button onclick="togglePlay()" id="playBtn">⏸️</button>
+        <button onclick="forward1()">▶️</button>
+        <button onclick="forward10()">⏩</button>
+        <button onclick="showEditor()">Editor</button>
+    </div>
+</main>
 
-<p>Américo Filho - 2026 - versão 1.03</p>
+<p>Américo Filho - 2026 - versão 1.04</p>
 
 <script src="script.js"></script>
 </body>

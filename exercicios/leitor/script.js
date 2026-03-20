@@ -73,10 +73,14 @@ function nextWord(){
     showWord()
 
     let delay = speed
+    let word = words[index]
 
-    if(/[.,;:!?]$/.test(words[index])){
-        delay = speed * 2
-    }
+    // PAUSAS INTELIGENTES POR PONTUAÇÃO
+    if(word.endsWith(",")) delay = speed * 1.3
+    else if(word.endsWith(";") || word.endsWith(":")) delay = speed * 1.6
+    else if(word.endsWith(".")) delay = speed * 2
+    else if(word.endsWith("!")) delay = speed * 2.2
+    else if(word.endsWith("?")) delay = speed * 2.5
 
     clearInterval(timer)
     timer = setInterval(nextWord, delay)
@@ -183,20 +187,13 @@ function clearText(){
 }
 
 async function loadExamples(){
-
     try{
-
         const response = await fetch("texto.json")
-
         const data = await response.json()
-
         exampleTexts = data.texts
-
     }
     catch(error){
-
         console.error("Erro ao carregar exemplos:", error)
-
     }
 }
 
