@@ -3,51 +3,74 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Projeto ReadZen</title>
+<title>ReadZen4free - Revolução</title>
+
 <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-<main>
-    <div id="editorContainer">
-        <div id="editor">
-            <h2>Projeto ReadZen</h2>
-            <p>Leitor Sensorial de Foco Absoluto<br>RSVP – Rapid Serial Visual Presentation</p>
-            <textarea id="textInput" placeholder="Cole seu texto aqui, e clique em Iniciar"></textarea>
-            <br>
-            Palavras por minuto
-            <input type="number" id="speedInput" value="300" step="10">
-            <br>
-            <div class="editorButtons">
-                <button onclick="fillExampleText()">Texto de Exemplo</button>
-                <button onclick="clearText()">Limpar Texto</button>
-            </div>
-            <br>
-            <button onclick="startReading()">Iniciar</button>
-        </div>
-    </div>
 
-    <div id="wordDisplay"></div>
-    <div id="focusGuide"></div> <!-- LINHA DE FOCO -->
-    <div id="progress"></div>
+<header class="rz-header">
+    <h1>ReadZen</h1>
+    <p class="rz-subtitle">
+        Leitor Sensorial de Foco Absoluto<br>
+        RSVP – Rapid Serial Visual Presentation
+    </p>
+</header>
 
-    <div id="speedPanel" class="hidden">
-        <button class="speedBtn" onclick="changeSpeed(10)">🔼</button>
-        <span id="speedValue">300 WPM</span>
-        <button class="speedBtn" onclick="changeSpeed(-10)">🔽</button>
-    </div>
+<main class="rz-main">
 
-    <div id="controlPanel" class="hidden">
-        <button onclick="back10()">⏪</button>
-        <button onclick="back1()">◀️</button>
-        <button onclick="togglePlay()" id="playBtn">⏸️</button>
-        <button onclick="forward1()">▶️</button>
-        <button onclick="forward10()">⏩</button>
-        <button onclick="showEditor()">Editor</button>
-    </div>
+    <section class="rz-content">
+
+        <h2 class="rz-title">
+            Você não lê devagar.<br>
+            Apenas nunca foi ensinado a ler com foco.
+        </h2>
+
+        <button id="openReadZen" class="rz-button">
+            Iniciar Leitura com ReadZen
+        </button>
+
+        <p>
+            O ReadZen nasce de uma ideia simples, mas poderosa: a leitura tradicional não foi feita para o ritmo do mundo atual. Nossos olhos se movem demais, nossa atenção se dispersa, e o conteúdo, por mais valioso que seja, acaba sendo consumido de forma lenta e fragmentada.
+        </p>
+
+        <p>
+            Utilizando a técnica RSVP (Rapid Serial Visual Presentation), o ReadZen apresenta palavras de forma sequencial, reduzindo o movimento ocular e aumentando drasticamente o foco. Isso permite que o cérebro processe a informação com mais eficiência, mantendo a atenção no que realmente importa: o conteúdo.
+        </p>
+
+        <p>
+            Mais do que velocidade, buscamos criar uma experiência sensorial de leitura. Um estado onde o ruído externo desaparece, e o fluxo de palavras conduz o pensamento de forma contínua, quase meditativa.
+        </p>
+
+        <p>
+            Este ainda é um ambiente de testes. Estamos refinando cada detalhe — ritmo, pausas, conforto visual e interação. Este texto, inclusive, serve como base para validar a experiência real do usuário dentro da plataforma.
+        </p>
+
+        <p>
+            Em breve, o ReadZen poderá ser integrado a qualquer página, permitindo transformar artigos, manuais, conteúdos acadêmicos e até jogos narrativos em experiências de leitura dinâmica.
+        </p>
+
+        <p>
+            Por enquanto, convidamos você a experimentar. Clique no botão acima e observe como sua percepção de leitura começa a mudar.
+        </p>
+
+    </section>
+
 </main>
 
-<p>Américo Filho - 2026 - versão 1.04</p>
+<footer class="rz-footer">
+    <p>
+        Projeto por Américo Filho & Copiloto IA<br>
+        Março 2026 • Versão 0.03<br><br>
 
-<script src="script.js"></script>
+        <a href="./old/index.html" class="rz-footer-link">
+            Acessar versão anterior (legado)
+        </a>
+    </p>
+</footer>
+
+<script src="readzen.js"></script>
+
 </body>
 </html>
