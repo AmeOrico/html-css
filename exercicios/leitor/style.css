@@ -1,16 +1,50 @@
-/* RESET BASE (mantido + leve refinamento) */
+/* RESET BASE */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* 🎨 VARIÁVEIS GLOBAIS */
+:root {
 
+    /* 🌇 BACKGROUND */
+    --rz-bg-gradient: linear-gradient(155deg, #144D7CFC 0%, #3F0A81BA 100%);
+
+    /* 🎨 CORES */
+    --rz-text: #ffffff;
+    --rz-text-soft: rgba(255, 255, 255, 0.85);
+
+    --rz-glass-strong: rgba(255, 255, 255, 0.08);
+    --rz-glass-medium: rgba(255, 255, 255, 0.06);
+    --rz-glass-light: rgba(255, 255, 255, 0.05);
+
+    --rz-accent: #ffb347;
+    --rz-accent-strong: #ff7a18;
+
+    --rz-dark-text: #1a1a1a;
+
+    /* ✨ SOMBRAS */
+    --rz-text-shadow: #144D7C 0px 1px 1px;
+    --rz-title-shadow: #144D7C 0px 2px 1px;
+    --rz-button-shadow: #f3c37f 0px 2px 2px;
+
+    /* 🔤 TIPOGRAFIA */
+    --rz-font-main: Arial, sans-serif;
+
+    /* 📐 */
+    --rz-radius: 15px;
+    --rz-padding: 16px;
+}
+
+/* ================= BASE ================= */
 
 body {
-    font-family: Arial, sans-serif;
-    background: linear-gradient(155deg, #144D7CFC 0%, #3F0A81BA 100%);
-    color: white;
+    font-family: var(--rz-font-main);
+    background: var(--rz-bg-gradient);
+    color: var(--rz-text);
+    text-shadow: var(--rz-text-shadow);
+
     -webkit-font-smoothing: antialiased;
 
     display: flex;
@@ -18,13 +52,13 @@ body {
     align-items: center;
 }
 
-/* LIMITADOR DE LARGURA (até ~1200px) */
+/* LIMITADOR */
 .rz-header,
 .rz-main,
 .rz-footer {
     width: 100%;
     max-width: 1100px;
-    padding: 16px;
+    padding: var(--rz-padding);
 }
 
 /* ================= HEADER ================= */
@@ -32,8 +66,9 @@ body {
 .rz-header {
     margin-top: 16px;
 
-    background: rgba(255, 255, 255, 0.08);
-    border-radius: 15px;
+    background: var(--rz-glass-strong);
+    border-radius: var(--rz-radius);
+
     backdrop-filter: blur(6px);
     -webkit-backdrop-filter: blur(6px);
 
@@ -60,14 +95,15 @@ body {
     margin-top: 16px;
 }
 
-/* CARD DE CONTEÚDO */
+/* CARD */
 .rz-content {
     width: 100%;
 
-    background: rgba(255, 255, 255, 0.06);
-    border-radius: 15px;
+    background: var(--rz-glass-medium);
+    border-radius: var(--rz-radius);
 
     padding: 20px;
+
     backdrop-filter: blur(4px);
     -webkit-backdrop-filter: blur(4px);
 
@@ -77,11 +113,12 @@ body {
 /* TÍTULO */
 .rz-title {
     font-size: clamp(20px, 5vw, 32px);
+    text-shadow: var(--rz-title-shadow);
     margin-bottom: 16px;
     line-height: 1.3;
 }
 
-/* PARÁGRAFOS */
+/* TEXTO */
 .rz-content p {
     margin-bottom: 14px;
     font-size: clamp(15px, 3.8vw, 18px);
@@ -101,23 +138,30 @@ body {
     font-size: 16px;
     font-weight: bold;
 
-    background: linear-gradient(135deg, #ff7a18, #ffb347);
-    color: #1a1a1a;
+    background: linear-gradient(135deg, var(--rz-accent-strong), var(--rz-accent));
+    color: var(--rz-dark-text);
+
+    text-shadow: var(--rz-button-shadow);
 
     transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
-/* feedback toque (mobile) */
+/* ACTIVE (mobile) */
 .rz-button:active {
     transform: scale(0.98);
     box-shadow: 0 4px 12px rgba(0,0,0,0.3) inset;
 }
 
-/* hover só afeta desktop */
+/* HOVER (desktop) */
 @media (hover: hover) {
     .rz-button:hover {
         transform: translateY(-2px);
         box-shadow: 0 6px 18px rgba(0,0,0,0.3);
+
+        background: linear-gradient(270deg, var(--rz-accent-strong), var(--rz-accent));
+        text-shadow: var(--rz-accent-strong) 0px 2px 2px;
+
+        transition: transform 0.3s;
     }
 }
 
@@ -128,10 +172,10 @@ body {
 
     text-align: center;
 
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 15px;
+    background: var(--rz-glass-light);
+    border-radius: var(--rz-radius);
 
-    padding: 16px;
+    padding: var(--rz-padding);
 
     font-size: 14px;
     opacity: 0.85;
@@ -141,7 +185,7 @@ body {
 }
 
 .rz-footer-link {
-    color: #ffb347;
+    color: var(--rz-accent);
     text-decoration: none;
     font-size: 13px;
     opacity: 0.9;
@@ -151,7 +195,7 @@ body {
     text-decoration: underline;
 }
 
-/* ================= DESKTOP (até 1200px) ================= */
+/* ================= DESKTOP ================= */
 
 @media (min-width: 768px) {
 
