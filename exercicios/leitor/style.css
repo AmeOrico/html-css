@@ -1,17 +1,19 @@
-/* RESET BASE */
+/* ================= RESET ================= */
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* 🎨 VARIÁVEIS GLOBAIS */
+/* ================= VARIÁVEIS ================= */
+
 :root {
 
-    /* 🌇 BACKGROUND */
+    /* BACKGROUND */
     --rz-bg-gradient: linear-gradient(155deg, #144D7CFC 0%, #3F0A81BA 100%);
 
-    /* 🎨 CORES */
+    /* CORES */
     --rz-text: #ffffff;
     --rz-text-soft: rgba(255, 255, 255, 0.85);
 
@@ -24,15 +26,15 @@
 
     --rz-dark-text: #1a1a1a;
 
-    /* ✨ SOMBRAS */
+    /* SOMBRAS */
     --rz-text-shadow: #144D7C 0px 1px 1px;
     --rz-title-shadow: #144D7C 0px 2px 1px;
     --rz-button-shadow: #f3c37f 0px 2px 2px;
 
-    /* 🔤 TIPOGRAFIA */
+    /* TIPOGRAFIA */
     --rz-font-main: Arial, sans-serif;
 
-    /* 📐 */
+    /* DIMENSÕES */
     --rz-radius: 15px;
     --rz-padding: 16px;
 }
@@ -85,6 +87,31 @@ body {
     font-size: clamp(14px, 3.5vw, 18px);
     opacity: 0.85;
     line-height: 1.4;
+}
+
+/* NAV HEADER */
+.rz-nav {
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+.rz-nav a {
+    text-decoration: none;
+    color: var(--rz-text);
+    font-size: 14px;
+    opacity: 0.9;
+}
+
+.rz-nav a:hover {
+    text-decoration: underline;
+}
+
+.rz-nav a.active {
+    font-weight: bold;
+    text-decoration: underline;
 }
 
 /* ================= MAIN ================= */
@@ -146,13 +173,11 @@ body {
     transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
-/* ACTIVE (mobile) */
 .rz-button:active {
     transform: scale(0.98);
     box-shadow: 0 4px 12px rgba(0,0,0,0.3) inset;
 }
 
-/* HOVER (desktop) */
 @media (hover: hover) {
     .rz-button:hover {
         transform: translateY(-2px);
@@ -160,8 +185,6 @@ body {
 
         background: linear-gradient(270deg, var(--rz-accent-strong), var(--rz-accent));
         text-shadow: var(--rz-accent-strong) 0px 2px 2px;
-
-        transition: transform 0.3s;
     }
 }
 
@@ -173,17 +196,61 @@ body {
     text-align: center;
 
     background: var(--rz-glass-light);
-    border-radius: var(--rz-radius);
+
+    /* 👇 SEU EFEITO "SORRISO" CONTROLADO */
+    border-radius: 20px 20px 60px 60px;
 
     padding: var(--rz-padding);
-
-    font-size: 14px;
-    opacity: 0.85;
 
     backdrop-filter: blur(4px);
     -webkit-backdrop-filter: blur(4px);
 }
 
+/* espaçamento entre blocos */
+.rz-footer > * {
+    margin-bottom: 14px;
+}
+
+.rz-footer > *:last-child {
+    margin-bottom: 0;
+}
+
+/* NAV FOOTER */
+.rz-footer-nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+/* LINKS */
+.rz-footer-nav a {
+    font-size: 13px;
+    color: var(--rz-accent);
+    text-decoration: none;
+    opacity: 0.9;
+}
+
+.rz-footer-nav a:hover {
+    text-decoration: underline;
+}
+
+.rz-footer-nav a.active {
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+/* TEXTO */
+.rz-footer p {
+    font-size: 14px;
+    opacity: 0.85;
+    line-height: 1.5;
+}
+
+/* LINK FINAL */
 .rz-footer-link {
     color: var(--rz-accent);
     text-decoration: none;
@@ -215,46 +282,4 @@ body {
     .rz-content p {
         margin-bottom: 16px;
     }
-}
-
-/* NAV HEADER */
-.rz-nav {
-    margin-top: 10px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
-}
-
-.rz-nav a {
-    text-decoration: none;
-    color: white;
-    font-size: 14px;
-    opacity: 0.9;
-}
-
-.rz-nav a:hover {
-    text-decoration: underline;
-}
-
-/* NAV FOOTER */
-.rz-footer-nav {
-    margin-bottom: 10px;
-}
-
-.rz-footer-nav a {
-    margin: 0 6px;
-    font-size: 13px;
-    color: #ffb347;
-    text-decoration: none;
-}
-
-.rz-footer-nav a:hover {
-    text-decoration: underline;
-}
-
-/* para ativar o "active" use o exemplo <a href="manifesto.html" class="active">Manifesto</a> no link do NAV*/
-.rz-nav a.active {
-    font-weight: bold;
-    text-decoration: underline;
 }
