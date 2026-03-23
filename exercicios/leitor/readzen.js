@@ -8,11 +8,13 @@ let isPaused = false
 let root, overlay, container, reader, toast
 
 const speedLevels = [
+    { name: "Iniciante", wpm: 120 },
     { name: "Respirar", wpm: 180 },
     { name: "Fluir", wpm: 240 },
     { name: "Foco", wpm: 300 },
     { name: "Ritmo", wpm: 380 },
-    { name: "Zen", wpm: 460 }
+    { name: "Zen", wpm: 460 },
+    { name: "Super-Zen", wpm: 540 }
 ]
 
 let currentLevel = 2

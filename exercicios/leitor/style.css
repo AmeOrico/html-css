@@ -216,3 +216,45 @@ body {
         margin-bottom: 16px;
     }
 }
+
+/* NAV HEADER */
+.rz-nav {
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+.rz-nav a {
+    text-decoration: none;
+    color: white;
+    font-size: 14px;
+    opacity: 0.9;
+}
+
+.rz-nav a:hover {
+    text-decoration: underline;
+}
+
+/* NAV FOOTER */
+.rz-footer-nav {
+    margin-bottom: 10px;
+}
+
+.rz-footer-nav a {
+    margin: 0 6px;
+    font-size: 13px;
+    color: #ffb347;
+    text-decoration: none;
+}
+
+.rz-footer-nav a:hover {
+    text-decoration: underline;
+}
+
+/* para ativar o "active" use o exemplo <a href="manifesto.html" class="active">Manifesto</a> no link do NAV*/
+.rz-nav a.active {
+    font-weight: bold;
+    text-decoration: underline;
+}
