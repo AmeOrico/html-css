@@ -17,17 +17,20 @@ const speedLevels = [
     { name: "Super-Zen", wpm: 540 }
 ]
 
-let currentLevel = 2
+let currentLevel = 3
 let speed = 60000 / speedLevels[currentLevel].wpm
 
 let exampleTexts = []
 
 function startFromPageDirect(){
-    let content = document.querySelector(".rz-content")
 
-    if(!content) return
+    if(!root){
+        createRoot()
+        injectCSS()
+        createOverlay()
+    }
 
-    let text = content.innerText
+    const text = getPageText()
 
     if(!text || text.trim() === "") return
 
