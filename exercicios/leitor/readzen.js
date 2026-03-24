@@ -22,7 +22,24 @@ let speed = 60000 / speedLevels[currentLevel].wpm
 
 let exampleTexts = []
 
+function startFromPageDirect(){
+    let content = document.querySelector(".rz-content")
+
+    if(!content) return
+
+    let text = content.innerText
+
+    if(!text || text.trim() === "") return
+
+    startReading(text)
+}
+
 function init(){
+    const heroBtn = document.getElementById("startReadZenHero")
+        if(heroBtn){
+            heroBtn.addEventListener("click", startFromPageDirect)
+        }
+
     loadTexts()
 
     const btn = document.getElementById("openReadZen")

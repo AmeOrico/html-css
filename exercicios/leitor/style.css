@@ -195,10 +195,9 @@ body {
 
     text-align: center;
 
-    background: var(--rz-glass-light);
+    /* background: var(--rz-glass-light); */
 
-    /* 👇 SEU EFEITO "SORRISO" CONTROLADO */
-    border-radius: 20px 20px 60px 60px;
+    border-radius: var(--rz-radius);
 
     padding: var(--rz-padding);
 
@@ -221,9 +220,14 @@ body {
     flex-wrap: wrap;
     justify-content: center;
     gap: 10px;
-
     padding-bottom: 10px;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
+
+    /* 👇 EFEITO "SORRISO" abaixo no NAV no rodapé
+    background-image: linear-gradient(0deg,rgba(255,255,255,0.1), rgba(255, 255, 255, 0)70%);
+    border-bottom: 2px solid rgba(255,255,255,0.1);
+    border-left: 2px solid rgba(255,255,255,0.1);
+    border-right: 2px solid rgba(255,255,255,0.1);
+    border-radius: 0 0 80% 80%; */
 }
 
 /* LINKS */
@@ -282,4 +286,70 @@ body {
     .rz-content p {
         margin-bottom: 16px;
     }
+}
+
+/* ================= HERO ================= */
+
+.rz-hero {
+    width: 100%;
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+    padding: 20px;
+
+    /* IMAGEM DE FUNDO */
+    background: 
+        linear-gradient(rgba(4,16,26,0.6), rgba(4,16,26,0.8)),
+        url("capa.png") center/cover no-repeat;
+
+    position: relative;
+}
+
+/* TÍTULO */
+.rz-hero h1 {
+    font-size: clamp(32px, 8vw, 56px);
+    line-height: 1.2;
+    margin-bottom: 16px;
+
+    text-shadow: 0 4px 20px rgba(0,0,0,0.6);
+}
+
+/* SUBTÍTULO */
+.rz-hero-sub {
+    font-size: clamp(16px, 4vw, 20px);
+    opacity: 0.9;
+    margin-bottom: 28px;
+
+    max-width: 500px;
+}
+
+/* BOTÃO HERO */
+.rz-hero-btn {
+    font-size: 18px;
+    padding: 16px 28px;
+
+    border-radius: 14px;
+
+    background: linear-gradient(135deg, #ff7a18, #ffb347);
+    color: #1a1a1a;
+
+    font-weight: bold;
+
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+
+    transition: all 0.2s ease;
+}
+
+/* MICRO ANIMAÇÃO */
+.rz-hero-btn:hover {
+    transform: translateY(-2px) scale(1.03);
+}
+
+.rz-hero-btn:active {
+    transform: scale(0.97);
 }
