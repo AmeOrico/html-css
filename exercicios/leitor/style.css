@@ -300,7 +300,7 @@ body {
     align-items: center;
 
     text-align: center;
-    padding: 20px;
+    padding: 0px 30px;
 
     /* IMAGEM DE FUNDO */
     background: 
@@ -313,8 +313,8 @@ body {
 /* TÍTULO */
 .rz-hero h1 {
     font-size: clamp(32px, 8vw, 56px);
-    line-height: 1.2;
-    margin-bottom: 16px;
+    line-height: 1.0;
+    margin-bottom: 10px;
 
     text-shadow: 0 4px 20px rgba(0,0,0,0.6);
 }
@@ -322,10 +322,10 @@ body {
 /* SUBTÍTULO */
 .rz-hero-sub {
     font-size: clamp(16px, 4vw, 20px);
-    opacity: 0.9;
-    margin-bottom: 28px;
+    opacity: 0.8;
+    margin-bottom: 10px;
 
-    max-width: 500px;
+    max-width: 400px;
 }
 
 /* BOTÃO HERO */
