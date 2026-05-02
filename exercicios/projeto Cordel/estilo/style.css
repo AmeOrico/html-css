@@ -51,8 +51,13 @@ section {
     padding-top: 10vh;
     padding-bottom: 10vh;
     line-height: 2em;
-    padding-left: 10vb;
+    padding-left: 10vh;
     font-family: var(--fonte3);
+    font-size: 1.2em;
+}
+
+section > p {
+    padding-bottom: 2em;
 }
 
 section.normal {
@@ -60,12 +65,29 @@ section.normal {
     color: black;
 }
 
+/* exemplo de como criar uma section com imagem de fundo fixa, criando o parallax, e a ilusão que há mais de um backgroung no site */
 section.imagem {
     background-color: rgba(0, 0, 0, 0.5);
     color: white;
+    background-size: cover;
+    box-shadow: inset 10px 10px 20px rgba(0, 0, 0, 0.7); /* adiciona efeito de sombra para da profundidade */
+    background-attachment: fixed; /* fixa a imagem de fundo, simples assim */
 }
 
 section.imagem > p {
-    background-color: rgba(0, 0, 0, 0.2);
-    width: 400px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+    display:inline-block; /*transformou o P num bloco, com isso ele terá o tamanho que sua informação tem. Evitando usar assim um witch com tamanho variavel de largura - ou criando um tamanho para isso, afinal, é um bloco" */
+    text-shadow: 2px 2px 0px black;
+    padding: 5px;
+}
+
+section.imagem#img01 {
+    background-image: url('../imagens/background001.jpg') ;
+    background-position: right center;
+}
+
+section.imagem#img02 {
+    background-image: url('../imagens/background002.jpg');
+    background-position: right center;
 }
